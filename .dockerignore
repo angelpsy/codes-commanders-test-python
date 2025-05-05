@@ -1,0 +1,54 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Virtual environment
+venv/
+env/
+.env.local
+
+# VS Code
+.vscode/
+
+# Database
+*.sqlite3
+postgres_data/
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Logs
+logs/
+*.log
+
+# Local development
+.local/

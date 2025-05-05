@@ -1,0 +1,19 @@
+# Environment files
+.env.local
+.env.*.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code
+.vscode/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Other
+.DS_Store
