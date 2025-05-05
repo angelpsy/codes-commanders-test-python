@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - .env.local
+      - .env
     depends_on:
       - db
     command: >
@@ -24,7 +24,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - .env.local
+      - .env
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
