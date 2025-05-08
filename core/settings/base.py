@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     # Local apps
     "api",
+    "status",
 ]
 
 MIDDLEWARE = [
