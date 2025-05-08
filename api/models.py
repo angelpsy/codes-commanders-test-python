@@ -1,0 +1,1 @@
+from .models.user import User  # Import the User model from the models package
