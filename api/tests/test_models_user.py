@@ -1,3 +1,4 @@
+# Renamed file to models_user.py
 from django.test import TestCase
 from api.models.user import User
 
