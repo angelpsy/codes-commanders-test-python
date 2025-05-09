@@ -19,3 +19,9 @@ class OrderSerializer(serializers.ModelSerializer):
         if len(value) < 10:
             raise ValidationError("Description must be at least 10 characters long.")
         return value
+
+    def validate_user(self, value):
+        """Ensure the user field is valid."""
+        if not isinstance(value, User):
+            raise serializers.ValidationError("Invalid user. Must be a valid User instance.")
+        return value

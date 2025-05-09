@@ -7,6 +7,30 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'name', 'email', 'age', 'created_at']
 
+    def validate_name(self, value):
+        """Ensure the name field is a string."""
+        if not isinstance(value, str):
+            raise serializers.ValidationError("Name must be a string.")
+        if not value.strip():
+            raise serializers.ValidationError("Name cannot be empty.")
+        return value
+
+    def validate_email(self, value):
+        """Ensure the email field is a string."""
+        if not isinstance(value, str):
+            raise serializers.ValidationError("Email must be a string.")
+        if not value.strip():
+            raise serializers.ValidationError("Email cannot be empty.")
+        return value
+
+    def validate_age(self, value):
+        """Ensure the age field is a positive integer."""
+        if not isinstance(value, int):
+            raise serializers.ValidationError("Age must be an integer.")
+        if value <= 0:
+            raise serializers.ValidationError("Age must be a positive integer.")
+        return value
+
     @staticmethod
     def create_user(name, email, age):
         """Create a new user."""
