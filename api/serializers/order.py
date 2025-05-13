@@ -6,6 +6,8 @@ from ..models.user import User
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(read_only=True)
+
     class Meta:
         model = Order
         fields = ["id", "title", "description", "user", "created_at"]

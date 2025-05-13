@@ -5,9 +5,11 @@ from ..models.user import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=True, help_text="The user's password.")
+
     class Meta:
         model = User
-        fields = ["id", "name", "email", "age", "created_at"]
+        fields = ["id", "name", "email", "age", "password", "created_at"]
 
     def validate_name(self, value):
         """Ensure the name field is a string."""
@@ -32,6 +34,22 @@ class UserSerializer(serializers.ModelSerializer):
         if value <= 0:
             raise serializers.ValidationError("Age must be a positive integer.")
         return value
+
+    def create(self, validated_data):
+        password = validated_data.pop("password")
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop("password", None)
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        if password:
+            instance.set_password(password)
+        instance.save()
+        return instance
 
     @staticmethod
     def create_user(name, email, age):
