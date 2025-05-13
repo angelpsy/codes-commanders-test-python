@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa: F403,F401  # isort: skip
 
 # Use in-memory SQLite database for testing
 DATABASES = {
@@ -14,4 +14,3 @@ AUTH_PASSWORD_VALIDATORS = []
 # Set debug to False for testing
 DEBUG = False
 
-# Additional test-specific settings can be added here

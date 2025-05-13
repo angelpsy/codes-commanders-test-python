@@ -1,6 +1,4 @@
-from .base import *
+from .base import *  # noqa: F403,F401  # isort: skip
 
 # Production-specific settings
 DEBUG = False
-
-# Add any production-specific settings here

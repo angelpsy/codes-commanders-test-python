@@ -1,11 +1,13 @@
 from rest_framework import serializers
 from rest_framework.exceptions import NotFound
+
 from ..models.user import User
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'age', 'created_at']
+        fields = ["id", "name", "email", "age", "created_at"]
 
     def validate_name(self, value):
         """Ensure the name field is a string."""
@@ -59,5 +61,7 @@ class UserSerializer(serializers.ModelSerializer):
     def get_users(page=1, page_size=10, **filters):
         """Retrieve a paginated list of users with optional filters."""
         offset = (page - 1) * page_size
-        users = User.objects.filter(**filters).order_by('-created_at')[offset:offset + page_size]
+        users = User.objects.filter(**filters).order_by("-created_at")[
+            offset: offset + page_size
+        ]
         return users

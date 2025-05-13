@@ -1,12 +1,14 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
+
 from ..models.order import Order
 from ..models.user import User
+
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['id', 'title', 'description', 'user', 'created_at']
+        fields = ["id", "title", "description", "user", "created_at"]
 
     def validate_title(self, value):
         """Validate the title field."""
@@ -23,5 +25,7 @@ class OrderSerializer(serializers.ModelSerializer):
     def validate_user(self, value):
         """Ensure the user field is valid."""
         if not isinstance(value, User):
-            raise serializers.ValidationError("Invalid user. Must be a valid User instance.")
+            raise serializers.ValidationError(
+                "Invalid user. Must be a valid User instance."
+            )
         return value

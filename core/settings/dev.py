@@ -1,6 +1,5 @@
-from .base import *
+from .base import *  # noqa: F403,F401  # isort: skip
 
 # Development-specific settings
 DEBUG = True
 
-# Add any development-specific settings here
