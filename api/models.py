@@ -2,7 +2,6 @@ from .models.user import *
 from .models.order import *
 
 from rest_framework.authtoken.models import Token
-from django.conf import settings
 
 class CustomToken(Token):
     class Meta:

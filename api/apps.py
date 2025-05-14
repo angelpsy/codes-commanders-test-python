@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 from django.db.models.signals import post_migrate
 
+
 def use_custom_token_model(sender, **kwargs):
     from rest_framework.authtoken.models import Token
     from django.contrib.contenttypes.models import ContentType
@@ -11,6 +12,7 @@ def use_custom_token_model(sender, **kwargs):
 
     # Register the custom Token model
     Token._meta.model = settings.REST_FRAMEWORK['DEFAULT_TOKEN_MODEL']
+
 
 class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'

@@ -13,4 +13,3 @@ AUTH_PASSWORD_VALIDATORS = []
 
 # Set debug to False for testing
 DEBUG = False
-
