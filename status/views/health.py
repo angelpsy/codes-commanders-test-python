@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from status.version import __version__
+from core.version import get_git_version
 
 def health(request):
-    return JsonResponse({"status": "ok", "version": __version__})
+    return JsonResponse({"status": "ok", "version": get_git_version()})

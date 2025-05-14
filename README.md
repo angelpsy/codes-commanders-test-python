@@ -150,3 +150,10 @@ python manage.py update_version --increment minor
 ```bash
 python manage.py update_version --increment patch
 ```
+
+### Get Current Version
+
+Retrieve the current version from the latest Git tag:
+```bash
+python manage.py get_version
+```

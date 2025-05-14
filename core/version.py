@@ -1,6 +1,5 @@
 import subprocess
 
-
 def get_git_version():
     try:
         version = (
@@ -13,6 +12,5 @@ def get_git_version():
         return version
     except Exception:
         return "0.0.0"
-
 
 __version__ = get_git_version()
